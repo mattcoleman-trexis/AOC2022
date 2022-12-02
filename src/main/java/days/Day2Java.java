@@ -1,4 +1,5 @@
 package days;
+
 import java.util.*;
 
 public class Day2Java extends DayJava {
@@ -9,7 +10,7 @@ public class Day2Java extends DayJava {
      * A|X Rock 1
      * B|Y Paper 2
      * C|Z Scissors 3
-     *
+     * <p>
      * Lose 0
      * Draw 3
      * Win 6
@@ -30,11 +31,11 @@ public class Day2Java extends DayJava {
      * X means you need to lose, 0
      * Y means you need to end the round in a draw, 3
      * Z means you need to win. 6
-     *
+     * <p>
      * win pair
-     *   A Y  Rock 1 PAPER 2
-     *   B Z  Paper 2 Scissors 3
-     *   C X  Scissors 3 Rock  1
+     * A Y  Rock 1 PAPER 2
+     * B Z  Paper 2 Scissors 3
+     * C X  Scissors 3 Rock  1
      */
     Map<String, Integer> strategyMap = Map.of(
             "A X", 3,
@@ -46,7 +47,7 @@ public class Day2Java extends DayJava {
             "C X", 2,
             "C Y", 6,
             "C Z", 7
-            );
+    );
 
     public Day2Java() {
         super(2);
@@ -65,12 +66,16 @@ public class Day2Java extends DayJava {
     }
 
     public String partOne() {
-        return String.valueOf(inputList.stream().map(input -> playMap.get(input)).mapToInt(Integer::intValue).sum());
+        return String.valueOf(
+                inputList.stream().mapToInt(input -> playMap.get(input)).sum()
+        );
     }
 
 
     public String partTwo() {
-        return String.valueOf(inputList.stream().map(input -> strategyMap.get(input)).mapToInt(Integer::intValue).sum());
+        return String.valueOf(
+                inputList.stream().mapToInt((input) -> strategyMap.get(input)).sum()
+        );
     }
 
 }
