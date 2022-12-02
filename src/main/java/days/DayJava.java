@@ -6,8 +6,8 @@ import java.util.List;
 
 public abstract class DayJava {
     // lazy delegate ensures the property gets computed only on first access
-    protected List<String> inputList;
-    protected String inputString;
+    public List<String> inputList;
+    public String inputString;
 
     abstract public String partOne();
     abstract public String partTwo();
