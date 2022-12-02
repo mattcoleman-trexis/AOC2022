@@ -78,7 +78,7 @@ class Day2 : Day(2) {
             var points = outcome.value
 
             points += when (outcome) {
-                Outcome.WIN -> winMap.filter { win -> win.value == them }.keys.first().value
+                Outcome.WIN -> getWinnerTo(them).value
                 Outcome.LOSE -> winMap[them]?.value ?: 0
                 Outcome.DRAW -> them.value
             }
@@ -88,4 +88,6 @@ class Day2 : Day(2) {
 
         return pointList.sum().toString()
     }
+
+    private fun getWinnerTo(them: HandType) = winMap.filter { win -> win.value == them }.keys.first()
 }

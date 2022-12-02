@@ -1,7 +1,5 @@
 package days
 
-import java.io.File
-
 class Day1 : Day(1) {
 
     override fun partOne(): Any {
