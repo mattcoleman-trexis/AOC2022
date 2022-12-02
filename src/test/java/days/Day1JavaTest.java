@@ -20,9 +20,10 @@ public class Day1JavaTest {
 
     @Test
     void testPartOne() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        Day1Java day1 = new Day1Java();
-//        day1.setup();
-        assertEquals(0, getSumMethod().invoke());
+        Day1Java dayOne = new Day1Java();
+//        assertEquals(0, getSumMethod().invoke());
+        assertEquals(dayOne.partOne(),"24000");
+
     }
 
 }
