@@ -57,11 +57,11 @@ class Day5 : Day(5) {
         parseInput()
         for (movement in movements) {
             val moveStack = mutableListOf<Char>()
+            moveStack.addAll(stacks.get(movement.second - 1).takeLast(movement.first))
             for (m in 0 until movement.first) {
-                val item = stacks.get(movement.second - 1).removeLast()
-                moveStack.add(item)
+                stacks.get(movement.second - 1).removeLast()
             }
-            stacks.get(movement.third - 1).addAll(moveStack.reversed())
+            stacks.get(movement.third - 1).addAll(moveStack)
         }
         val message = stacks.map { it.last() }.joinToString("")
 
