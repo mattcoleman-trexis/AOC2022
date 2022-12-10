@@ -10,9 +10,9 @@ class Day6 : Day(6) {
         return findUniqueSubstringPositionOfLength(14).toString()
     }
 
-    fun findUniqueSubstringPositionOfLength(length: Int) : Int {
+    private fun findUniqueSubstringPositionOfLength(length: Int) : Int {
         var markerPosition = 0
-        for (i in 0 until inputString.length) {
+        for (i in inputString.indices) {
             val sub = inputString.substring(i, length+i)
             if (sub.toCharArray().distinct().count() == length) {
                 markerPosition = i + length
